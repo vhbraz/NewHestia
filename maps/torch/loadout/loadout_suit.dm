@@ -15,7 +15,7 @@
 	allowed_roles = list(/datum/job/merchant, /datum/job/hos, /datum/job/warden, /datum/job/detective, /datum/job/officer, /datum/job/seccadet)
 
 /datum/gear/suit/medical_poncho
-	allowed_roles = list(/datum/job/senior_doctor, /datum/job/doctor, /datum/job/psychiatrist, /datum/job/merchant, /datum/job/chemist)
+	allowed_roles = list(/datum/job/senior_doctor, /datum/job/biomech, /datum/job/doctor, /datum/job/psychiatrist, /datum/job/merchant, /datum/job/chemist)
 
 /datum/gear/suit/engineering_poncho
 	allowed_roles = list(/datum/job/engineer, /datum/job/roboticist, /datum/job/merchant)
@@ -95,6 +95,11 @@
 	armors["blue plate carrier"] = /obj/item/clothing/suit/armor/pcarrier/blue
 	armors["green plate carrier"] = /obj/item/clothing/suit/armor/pcarrier/green
 	armors["tan plate carrier"] = /obj/item/clothing/suit/armor/pcarrier/tan
+	armors["black ipc plate carrier"] = /obj/item/clothing/suit/armor/pcarrier/ipc
+	armors["navy ipc plate carrier"] = /obj/item/clothing/suit/armor/pcarrier/navy/ipc
+	armors["blue ipc plate carrier"] = /obj/item/clothing/suit/armor/pcarrier/blue/ipc
+	armors["green ipc plate carrier"] = /obj/item/clothing/suit/armor/pcarrier/green/ipc
+	armors["tan ipc plate carrier"] = /obj/item/clothing/suit/armor/pcarrier/tan/ipc
 	gear_tweaks += new/datum/gear_tweak/path(armors)
 
 /datum/gear/suit/sfp
@@ -105,3 +110,20 @@
 /datum/gear/suit/labcoat_long
 	allowed_roles = DOCTOR_ROLES
 	allowed_branches = CASUAL_BRANCHES
+
+/datum/gear/tactical/kevlar
+	display_name = "kevlar selection"
+	description = "A selection of kevlar vests. They can be equipped with armor plates, but provides no protection of their own."
+	path = /obj/item/clothing/suit/armor/pcarrier
+	cost = 1
+	slot = slot_wear_suit
+	allowed_branches = TACTICOOL_BRANCHES
+
+/datum/gear/tactical/kevlar/New()
+	..()
+	var/armors = list()
+	armors["tan kevlar"] = /obj/item/clothing/suit/armor/pcarrier/kevlar/tan
+	armors["navy kevlar"] = /obj/item/clothing/suit/armor/pcarrier/kevlar/navy
+	armors["blue kevlar"] = /obj/item/clothing/suit/armor/pcarrier/kevlar/blue
+	armors["green kevlar"] = /obj/item/clothing/suit/armor/pcarrier/kevlar/green
+	gear_tweaks += new/datum/gear_tweak/path(armors)
