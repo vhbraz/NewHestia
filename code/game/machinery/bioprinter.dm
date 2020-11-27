@@ -113,14 +113,6 @@
 		BP_EYES     = list(/obj/item/organ/internal/eyes,       20),
 		BP_LIVER    = list(/obj/item/organ/internal/liver,      25),
 		BP_STOMACH  = list(/obj/item/organ/internal/stomach,    25),
-		BP_L_ARM    = list(/obj/item/organ/external/arm,        65),
-		BP_R_ARM    = list(/obj/item/organ/external/arm/right,  65),
-		BP_L_LEG    = list(/obj/item/organ/external/leg,        65),
-		BP_R_LEG    = list(/obj/item/organ/external/leg/right,  65),
-		BP_L_FOOT   = list(/obj/item/organ/external/foot,       40),
-		BP_R_FOOT   = list(/obj/item/organ/external/foot/right, 40),
-		BP_L_HAND   = list(/obj/item/organ/external/hand,       40),
-		BP_R_HAND   = list(/obj/item/organ/external/hand/right, 40),
 		BP_CELL		= list(/obj/item/organ/internal/cell, 25)
 		)
 
@@ -255,7 +247,8 @@
 	for(var/organ in loaded_species.has_organ)
 		organs += loaded_species.has_organ[organ]
 	for(var/organ in loaded_species.has_limbs)
-		organs += loaded_species.has_limbs[organ]["path"]
+		if ((loaded_species.name == SPECIES_NABBER) || (organ == BP_GROIN))
+			organs += loaded_species.has_limbs[organ]["path"]
 	for(var/organ in organs)
 		var/obj/item/organ/O = organ
 		if(check_printable(organ))
